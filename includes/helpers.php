@@ -1,7 +1,7 @@
 <?php
 
 /**
-*
+* Written by Susan Buck who is allowing us to use these helper functions in our projects.
 */
 
 function dump($mixed = null) {
