@@ -14,7 +14,7 @@
         <form method='GET'>
         <!-- Start Form -->
           <div class='form-group'>
-             <label for='billAmount'>Bill Amount:</label>
+             <label for='billAmount'>Bill Amount: $</label>
              <input name='billAmount' id='billAmount' type='text' value='<?=$billAmount?>'>
              <span class="hint">(Required)</span>
           </div>
@@ -34,17 +34,29 @@
           <div class='form-group'>
              <label for='divideBy'>Divide By:</label>
              <input name='divideBy' id='divideBy' type='number' min='1' max='100' step='1' value='<?=$divideBy?>' required/>
+             <!-- FOR TESTING VALIDATION <input name='divideBy' id='divideBy' value='<?=$divideBy?>'/>---->
           </div>
           <input type='submit' value='Calculate' />
-          <?php if (!$newTransaction) : ?>
-             <?php if (!$pleasePay) : ?>
-                <div class='alert alert-warning'>You did not enter a valid amount for the total the bill.</div>
-             <?php else : ?>
-                <div class='alert alert-success'>The total amount including tip is: <strong>$<?=sanitize($totalBill)?></strong>, or: <strong>$<?=sanitize($pleasePay)?></strong> per person.</div>
+
+          <?php if (!empty($errors)) : ?>
+             <div class='alert alert-danger'>
+               <ul>
+                  <?php foreach ($errors as $error) : ?>
+                     <li><?=$error?></li>
+                  <?php endforeach; ?>
+               </ul>
+              </div>
+           <?php endif ?>
+
+           <?php if (!$newTransaction) : ?>
+             <?php if ($pleasePay) : ?>
+                 <div class='alert alert-success'>The total amount including tip is: <strong>$<?=sanitize($totalBill)?></strong>, or: <strong>$<?=sanitize($pleasePay)?></strong> per person.</div>
              <?php endif; ?>
-          <?php endif; ?>
-        <!-- End Form -->
-        </form>
+           <?php endif; ?>
+
+         <!-- End Form -->
+         </form>
+
         <!-- End Body -->
     </body>
 </html>
