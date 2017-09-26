@@ -1,13 +1,11 @@
 <?php
-
 require('helpers.php');
 require('CheckSplit.php');
 require('Form.php');
-require('MyForm.php'); # <--- NEW
+require('MyForm.php');
 
 use Dwa15PegProj2\CheckSplit;
 use DWA\Form;
-#use Buck\MyForm;          (left in this commented out code so I can easily recall the namespace problem/solution)
 use Dwa15PegProj2\MyForm;
 
 $form = new MyForm($_GET);
@@ -17,15 +15,12 @@ $newTransaction = false;
 $totalBill = 0;
 $pleasePay = 0;
 
-#dump($_GET);
-
 if (empty($_GET)) {        #If $_GET is empty it's a new page. Set some default values and return.
    $billAmount = '';       #This code block may be possible to replace using the Form class - may revisit
    $newTransaction = true;
    $round = false;
    $tip = 15;
    $divideBy = 2;
-   #dump($tip);
    return;
 }
 
@@ -44,7 +39,6 @@ if ($form->issubmitted()) {
 }
 
 if (!empty($errors)) {
-   #dump($errors);
    return;
 }
 

@@ -4,7 +4,6 @@ namespace Dwa15PegProj2;
 
 class CheckSplit
 {
-
    #properties
    public $payInfo =
    [
@@ -12,11 +11,10 @@ class CheckSplit
       'payment' => 0,
    ];
 
-
    #methods
    public function __construct()
    {
-      #echo 'Instantiated a new CheckSplit Object';
+      #echo 'Instantiated a new CheckSplit Object';  //for future debugging - did I get here?
    }
 
    /**
@@ -30,13 +28,10 @@ class CheckSplit
       $this->payInfo['total'] = $billAmount + ($billAmount * $percentage);
       $this->payInfo['payment'] = $this->payInfo['total'] / $divideBy;
 
-      if ($round)
-      {
+      if ($round) {
          $this->payInfo['payment'] = round($this->payInfo['payment']);
       }
-      #echo 'payment '.$this->payInfo['payment'];
+
       return $this->payInfo;
-
    }
-
 }  #eoc
