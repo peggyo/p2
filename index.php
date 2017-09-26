@@ -8,11 +8,14 @@
         <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet'>
         <link href='css/p2.css' rel='stylesheet'>
     </head>
+
     <body>
     <!-- Start Body -->
         <h1>American Tip Calculator</h1>
+
         <form method='GET'>
         <!-- Start Form -->
+
           <div class='form-group'>
              <label for='billAmount'>Bill Amount: $</label>
              <input name='billAmount' id='billAmount' type='text' value='<?=$billAmount?>'>
@@ -34,8 +37,8 @@
           <div class='form-group'>
              <label for='divideBy'>Divide By:</label>
              <input name='divideBy' id='divideBy' type='number' min='1' max='100' step='1' value='<?=$divideBy?>' required/>
-             <!-- FOR TESTING VALIDATION <input name='divideBy' id='divideBy' value='<?=$divideBy?>'/>---->
           </div>
+
           <input type='submit' value='Calculate' />
 
           <?php if (!empty($errors)) : ?>
@@ -56,7 +59,6 @@
 
          <!-- End Form -->
          </form>
-
         <!-- End Body -->
     </body>
 </html>

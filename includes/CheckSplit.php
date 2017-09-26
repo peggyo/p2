@@ -16,9 +16,14 @@ class CheckSplit
    #methods
    public function __construct()
    {
-      //echo 'Instantiated a new CheckSplit Object';
+      #echo 'Instantiated a new CheckSplit Object';
    }
 
+   /**
+   *  Give a bill amount, a tip percentage, and a number to divide by, calculate the
+   *  total amount to be paid by each payer. Round the amount if $round is true.
+   *  Return the total payment including tip and the payment due per payer.
+   */
    public function calculatePayAmount($billAmount, $tip = 15, $round = false, $divideBy = 2)
    {
       $percentage = ($tip / 100);
@@ -34,4 +39,4 @@ class CheckSplit
 
    }
 
-}
+}  #eoc
